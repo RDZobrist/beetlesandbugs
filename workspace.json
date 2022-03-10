@@ -1,0 +1,731 @@
+{
+  "projects": {
+    "cross-platform": {
+      "projectType": "application",
+      "root": "apps/cross-platform",
+      "sourceRoot": "apps/cross-platform/src",
+      "tags": [],
+      "targets": {
+        "analyze": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter analyze",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "assemble": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter assemble",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "attach": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter attach",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildAar": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build aar",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildApk": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build apk",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildAppbundle": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build appbundle",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildBundle": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build bundle",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildIos": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build ios",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildIosFramework": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build ios-framework",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "buildIpa": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter build ipa",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "clean": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter clean",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "drive": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter drive",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "format": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter format apps/cross-platform/*",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "genL10n": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter gen-l10n",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "install": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter install",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "run": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter run",
+            "cwd": "apps/cross-platform"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "flutter test",
+            "cwd": "apps/cross-platform"
+          }
+        }
+      }
+    },
+    "csr": {
+      "projectType": "application",
+      "root": "apps/csr",
+      "sourceRoot": "apps/csr/src",
+      "tags": [],
+      "targets": {
+        "add": {
+          "configurations": {
+            "android": {
+              "cmd": "add android"
+            },
+            "ios": {
+              "cmd": "add ios"
+            }
+          },
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "add",
+            "packageInstall": true
+          }
+        },
+        "build": {
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "5mb",
+                  "maximumWarning": "2mb",
+                  "type": "initial"
+                }
+              ],
+              "extractCss": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/csr/src/environments/environment.ts",
+                  "with": "apps/csr/src/environments/environment.prod.ts"
+                }
+              ],
+              "namedChunks": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "vendorChunk": false
+            }
+          },
+          "executor": "@nrwl/web:build",
+          "options": {
+            "assets": ["apps/csr/src/assets", "apps/csr/src/manifest.json"],
+            "generateIndexHtml": true,
+            "index": "apps/csr/src/index.html",
+            "main": "apps/csr/src/main.tsx",
+            "outputPath": "dist/apps/csr",
+            "polyfills": "apps/csr/src/polyfills.ts",
+            "scripts": [],
+            "styles": ["apps/csr/src/styles.css"],
+            "tsConfig": "apps/csr/tsconfig.app.json",
+            "webpackConfig": "apps/csr/webpack.config.js"
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "cap": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "--help"
+          }
+        },
+        "copy": {
+          "configurations": {
+            "android": {
+              "cmd": "copy android"
+            },
+            "ios": {
+              "cmd": "copy ios"
+            }
+          },
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "copy",
+            "packageInstall": false
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/csr/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "open": {
+          "configurations": {
+            "android": {
+              "cmd": "open android"
+            },
+            "ios": {
+              "cmd": "open ios"
+            }
+          },
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "open",
+            "packageInstall": false
+          }
+        },
+        "serve": {
+          "configurations": {
+            "production": {
+              "buildTarget": "csr:build:production"
+            }
+          },
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "csr:build"
+          }
+        },
+        "sync": {
+          "configurations": {
+            "android": {
+              "cmd": "sync android"
+            },
+            "ios": {
+              "cmd": "sync ios"
+            }
+          },
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "sync",
+            "packageInstall": true
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/csr/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/csr"]
+        },
+        "update": {
+          "configurations": {
+            "android": {
+              "cmd": "update android"
+            },
+            "ios": {
+              "cmd": "update ios"
+            }
+          },
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "update",
+            "packageInstall": true
+          }
+        }
+      }
+    },
+    "csr-e2e": {
+      "implicitDependencies": ["csr"],
+      "projectType": "application",
+      "root": "apps/csr-e2e",
+      "sourceRoot": "apps/csr-e2e/src",
+      "tags": [],
+      "targets": {
+        "e2e": {
+          "configurations": {
+            "production": {
+              "devServerTarget": "csr:serve:production"
+            }
+          },
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/csr-e2e/cypress.json",
+            "devServerTarget": "csr:serve",
+            "tsConfig": "apps/csr-e2e/tsconfig.e2e.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/csr-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "firebase-functions": {
+      "prefix": "firebase-functions",
+      "projectType": "application",
+      "root": "apps/firebase-functions",
+      "sourceRoot": "apps/firebase-functions/src",
+      "tags": [],
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx run firebase-functions:build-node"
+          }
+        },
+        "build-node": {
+          "configurations": {
+            "production": {
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/firebase-functions/src/environments/environment.ts",
+                  "with": "apps/firebase-functions/src/environments/environment.prod.ts"
+                }
+              ],
+              "inspect": false,
+              "optimization": true
+            }
+          },
+          "executor": "@nrwl/node:build",
+          "options": {
+            "assets": [
+              "apps/firebase-functions/src/assets",
+              "apps/firebase-functions/src/package.json"
+            ],
+            "main": "apps/firebase-functions/src/main.ts",
+            "outputPath": "dist/apps/firebase-functions",
+            "tsConfig": "apps/firebase-functions/tsconfig.app.json"
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "nx run firebase-functions:build"
+              },
+              {
+                "command": "nx run firebase-functions:deploy-functions"
+              }
+            ],
+            "parallel": false
+          }
+        },
+        "deploy-functions": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "firebase deploy --only functions"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/firebase-functions/**/*.ts"]
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "firebase-functions:build"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/firebase-functions/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/firebase-functions"]
+        }
+      }
+    },
+    "hasura": {
+      "projectType": "library",
+      "root": "libs/hasura",
+      "sourceRoot": "libs/hasura/src",
+      "tags": [],
+      "targets": {
+        "console": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura console --admin-secret ${HASURA_ADMIN_SECRET}",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/hasura/**/*.ts"]
+          }
+        },
+        "mark-squash-applied": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura migrate apply --version {args.version} --skip-execution --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET} --database-name gcp",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "metadata-apply": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura metadata apply --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET}",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "metadata-reload": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura metadata reload --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET}",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "migrate-apply": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura migrate apply --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET} --all-databases",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "migrate-squash": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura migrate squash --name {args.name} --from {args.from} --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET} --database-name gcp",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "migrate-status": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "hasura migrate status --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET} --database-name gcp",
+            "cwd": "libs/hasura"
+          },
+          "outputs": []
+        },
+        "run-migration": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "hasura metadata apply --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET}",
+              "hasura migrate apply --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET} --all-databases",
+              "hasura metadata reload --endpoint ${HASURA_MIGRATION_ENDPOINT} --admin-secret ${HASURA_MIGRATION_SECRET}"
+            ],
+            "cwd": "libs/hasura",
+            "parallel": false
+          },
+          "outputs": []
+        }
+      }
+    },
+    "netlify-lambda": {
+      "prefix": "netlify-lambda",
+      "projectType": "application",
+      "root": "apps/netlify-lambda",
+      "sourceRoot": "apps/netlify-lambda/src",
+      "tags": [],
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "node ../../node_modules/netlify-lambda build src/app"
+            ],
+            "cwd": "apps/netlify-lambda",
+            "outputPath": "dist/apps/netlify-lambda"
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/netlify-lambda/**/*.ts"]
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["netlify dev"],
+            "cwd": "apps/netlify-lambda",
+            "outputPath": "dist/apps/netlify-lambda"
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/netlify-lambda/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/netlify-lambda"]
+        }
+      }
+    },
+    "site": {
+      "projectType": "application",
+      "root": "apps/site",
+      "sourceRoot": "apps/site",
+      "tags": [],
+      "targets": {
+        "build": {
+          "configurations": {
+            "production": {}
+          },
+          "executor": "@nrwl/next:build",
+          "options": {
+            "outputPath": "dist/apps/site",
+            "root": "apps/site"
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "site:build:production"
+          }
+        },
+        "get-schema": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd apps/site/schema && npx gq https://${NEXT_PUBLIC_HASURA_ENDPOINT} -H \"X-Hasura-Admin-Secret: ${HASURA_ADMIN_SECRET}\" --introspect > schema.graphql"
+            ]
+          },
+          "outputs": [],
+          "parallel": false
+        },
+        "graphql-codegen": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "graphql-codegen --config ./graphql/codegen.yml",
+            "cwd": "apps/site"
+          },
+          "outputs": []
+        },
+        "graphql-codegen-watch": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "graphql-codegen --config ./graphql/codegen.yml -r dotenv/config --watch",
+            "cwd": "apps/site"
+          },
+          "outputs": []
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/site/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "serve": {
+          "configurations": {
+            "production": {
+              "buildTarget": "site:build:production",
+              "dev": false
+            }
+          },
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "site:build",
+            "dev": true
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/site/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/site"]
+        }
+      }
+    },
+    "site-e2e": {
+      "implicitDependencies": ["site"],
+      "projectType": "application",
+      "root": "apps/site-e2e",
+      "sourceRoot": "apps/site-e2e/src",
+      "tags": [],
+      "targets": {
+        "e2e": {
+          "configurations": {
+            "production": {
+              "devServerTarget": "site:serve:production"
+            }
+          },
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/site-e2e/cypress.json",
+            "devServerTarget": "site:serve",
+            "tsConfig": "apps/site-e2e/tsconfig.e2e.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/site-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "tags": [],
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/ui"]
+        }
+      }
+    },
+    "web": {
+      "root": "apps/web",
+      "sourceRoot": "apps/web",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "root": "apps/web",
+            "outputPath": "dist/apps/web"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "web:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "web:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "web:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/web"],
+          "options": {
+            "jestConfig": "apps/web/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "web-e2e": {
+      "root": "apps/web-e2e",
+      "sourceRoot": "apps/web-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/web-e2e/cypress.json",
+            "devServerTarget": "web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/web-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["web"]
+    }
+  },
+  "version": 2
+}
